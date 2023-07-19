@@ -7,6 +7,12 @@ function Contact() {
       <Header />
       <div className="boxWithoutHeader">
         <h1>Me contacter</h1>
+        <br />
+        <p>
+          Pour plus de renseignements, modifier ou annuler un rendez vous :{" "}
+        </p>
+        <p>Adresse mail : amelie@gmail.com</p>
+        <p>Telephone : 06 06 06 06 06</p>
       </div>
     </div>
   );

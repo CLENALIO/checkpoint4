@@ -19,5 +19,8 @@
       color: $buttonColor;
       font-size: 20px;
     }
+    a:hover {
+      color: $primaryColor;
+    }
   }
 }

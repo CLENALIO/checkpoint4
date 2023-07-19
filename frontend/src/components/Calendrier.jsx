@@ -14,8 +14,13 @@ function Calendrier({ setDate, date }) {
 }
 
 Calendrier.propTypes = {
-  setDate: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
+  setDate: PropTypes.func,
+  date: PropTypes.string,
+};
+
+Calendrier.defaultProps = {
+  setDate: undefined,
+  date: undefined,
 };
 
 export default Calendrier;

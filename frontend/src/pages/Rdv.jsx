@@ -129,7 +129,7 @@ function Rdv() {
                   <label htmlFor="email">Votre email</label>
                   <input type="email" onChange={handleChangeEmail} />
                   <label htmlFor="phone">Votre téléphone</label>
-                  <input type="number" onChange={handleChangePhone} />
+                  <input type="phone" onChange={handleChangePhone} />
                   <br />
                   <button
                     className="sendRdv"
@@ -144,7 +144,7 @@ function Rdv() {
             )}
             {!dispo && (
               <div className="formContainer">
-                <h2>Désolé ce créneau n'est pas disponible</h2>
+                <h2>Désolé, ce créneau n'est pas disponible</h2>
               </div>
             )}
           </div>
