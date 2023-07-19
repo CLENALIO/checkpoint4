@@ -6,8 +6,10 @@ function Admin() {
   return (
     <div className="adminPage">
       <Header />
-      <h1>Mon planning</h1>
-      <Calendrier />
+      <div className="boxWithoutHeader">
+        <h1>Mon planning</h1>
+        <Calendrier />
+      </div>
     </div>
   );
 }

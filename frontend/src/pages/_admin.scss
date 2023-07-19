@@ -1,4 +1,14 @@
 .adminPage {
   background: linear-gradient($primaryColor, $secondColor);
   min-height: 100vh;
+
+  .boxWithoutHeader {
+    padding: 50px;
+
+    h1 {
+      font-size: 35px;
+      font-weight: $medium;
+      text-align: center;
+    }
+  }
 }
