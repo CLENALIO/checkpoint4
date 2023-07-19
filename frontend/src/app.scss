@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Mohave:wght@300;400;500;600;700&display=swap");
+
+$primaryColor: #ffe596;
+$secondColor: #f3aff0;
+$textColor: black;
+$buttonColor: white;
+
+$fontFamily: "Mohave", sans-serif;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+
+$logo: url("./assets/logo.png");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: $fontFamily;
+  font-weight: $regular;
+}
+
+@import "./components/header.scss";
+@import "./pages/admin.scss";
+@import "./pages/home.scss";
+@import "./pages/rdv.scss";
+@import "./pages/contact.scss";
