@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "../components/Header";
 
-function Home() {
+function Contact() {
   return (
-    <div className="homePage">
+    <div className="contact">
       <Header />
-      <p>HomePage</p>
+      <p>Contact</p>
     </div>
   );
 }
 
-export default Home;
+export default Contact;
