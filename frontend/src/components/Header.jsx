@@ -11,7 +11,7 @@ function Header() {
         <a href="/">Accueil</a>
         <a href="/rdv">Rendez vous</a>
         <a href="/contact">Contact</a>
-        <a href="/admin">Administrateur</a>
+        <a href="/login">Administrateur</a>
       </div>
     </div>
   );

@@ -82,10 +82,29 @@ const destroy = (req, res) => {
     });
 };
 
+const getUserByEmailWithPassword = (req, res) => {
+  const { email, password } = req.body;
+
+  models.user
+    .findByMailWithPassword(email, password)
+    .then(([user]) => {
+      if (user[0] != null) {
+        res.status(200).send("Connexion réussie");
+      } else {
+        res.status(401).send("Adresse mail ou mot de passe incorrect");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   browse,
   read,
   edit,
   add,
   destroy,
+  getUserByEmailWithPassword,
 };

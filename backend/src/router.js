@@ -24,6 +24,7 @@ router.get("/api/user", userControllers.browse);
 router.get("/api/user/:id", userControllers.read);
 router.put("/api/user/:id", userControllers.edit);
 router.post("/api/user", userControllers.add);
+router.post("/api/user/login", userControllers.getUserByEmailWithPassword);
 router.delete("/api/user/:id", userControllers.destroy);
 
 module.exports = router;
