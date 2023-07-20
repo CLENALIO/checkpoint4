@@ -162,7 +162,7 @@ function Rdv() {
               <h2>{popup}</h2>
               <br />
               <div className="formulaire">
-                <button className="sendRdv" type="button" onClick={closePopUp}>
+                <button className="ok" type="button" onClick={closePopUp}>
                   {" "}
                   Ok{" "}
                 </button>

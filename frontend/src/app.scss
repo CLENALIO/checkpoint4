@@ -2,6 +2,7 @@
 
 $primaryColor: #ffe596;
 $secondColor: #f3aff0;
+$middleColor: #f9cac2;
 $textColor: black;
 $buttonColor: white;
 
@@ -31,3 +32,4 @@ $logo: url("./assets/logo.png");
 @import "./pages/rdv.scss";
 @import "./pages/contact.scss";
 @import "./pages/login.scss";
+@import "./components/calendrier.scss";

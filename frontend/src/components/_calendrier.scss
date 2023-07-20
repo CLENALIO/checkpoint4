@@ -1,0 +1,25 @@
+.calendrier {
+  .calendar-container {
+    .react-calendar__month-view__days__day--weekend {
+      color: $textColor;
+    }
+
+    .react-calendar__tile--now {
+      background: $primaryColor;
+    }
+
+    .react-calendar__tile--hasActive {
+      background: $secondColor;
+    }
+
+    .react-calendar__tile--active:enabled:hover,
+    .react-calendar__tile--active:enabled:focus {
+      background: $secondColor;
+    }
+
+    .react-calendar__tile--active {
+      background: $secondColor;
+      color: $buttonColor;
+    }
+  }
+}

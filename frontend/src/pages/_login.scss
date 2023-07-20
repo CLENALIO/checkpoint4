@@ -9,7 +9,7 @@
     flex-direction: column;
 
     h2 {
-      font-size: 18px;
+      font-size: 25px;
       padding-bottom: 5px;
     }
 
@@ -20,6 +20,9 @@
       height: 50px;
       border-radius: 30px;
       font-size: 20px;
+    }
+    .ok:hover {
+      color: $middleColor;
     }
 
     .inputLogin {
@@ -46,6 +49,9 @@
         font-size: 25px;
         font-weight: $medium;
       }
+      .loginButton:hover {
+        color: $middleColor;
+      }
     }
   }
 
@@ -56,15 +62,19 @@
     align-items: center;
     h3 {
       font-size: 18px;
-      padding-right: 5px;
+      padding-right: 10px;
     }
     button {
       background-color: $textColor;
       color: $buttonColor;
       width: 150px;
-      height: 50px;
+      height: 40px;
       border-radius: 30px;
       font-size: 20px;
+    }
+
+    .home:hover {
+      color: $secondColor;
     }
   }
 }

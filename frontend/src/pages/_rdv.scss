@@ -57,13 +57,21 @@
             padding: 6px;
           }
 
-          .sendRdv {
+          button {
             background-color: $textColor;
             color: $buttonColor;
             width: 400px;
             height: 40px;
             border-radius: 30px;
             font-size: 25px;
+          }
+
+          .ok:hover {
+            color: $middleColor;
+          }
+
+          .sendRdv:hover {
+            color: $secondColor;
           }
         }
       }

@@ -59,13 +59,19 @@
 
           .boutons {
             display: flex;
-            .sendRdv {
+            button {
               background-color: $textColor;
               color: $buttonColor;
               width: 200px;
               height: 60px;
               border-radius: 30px;
               font-size: 20px;
+            }
+            .sendRdv:hover {
+              color: $secondColor;
+            }
+            .ok:hover {
+              color: $middleColor;
             }
           }
         }

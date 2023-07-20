@@ -214,7 +214,7 @@ function Admin() {
                     <br />
                     <div className="boutons">
                       <button
-                        className="sendRdv"
+                        className="ok"
                         type="button"
                         onClick={handleDelete}
                       >
@@ -238,11 +238,7 @@ function Admin() {
                 <br />
                 <div className="details">
                   <div className="boutons">
-                    <button
-                      className="sendRdv"
-                      type="button"
-                      onClick={handleOff}
-                    >
+                    <button className="ok" type="button" onClick={handleOff}>
                       {" "}
                       Modifier en jour Off
                     </button>
@@ -260,11 +256,7 @@ function Admin() {
               <br />
               <div className="details">
                 <div className="boutons">
-                  <button
-                    className="sendRdv"
-                    type="button"
-                    onClick={closePopUp}
-                  >
+                  <button className="ok" type="button" onClick={closePopUp}>
                     {" "}
                     Ok{" "}
                   </button>
