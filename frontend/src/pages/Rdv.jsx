@@ -116,7 +116,7 @@ function Rdv() {
                 <div className="formulaire">
                   <select name="type" onChange={handleChangeType}>
                     <option value="">
-                      Selectionnez votre type de prestation
+                      Selectionner votre type de prestation
                     </option>
                     <option value="1">Tri et conseils</option>
                     <option value="2">

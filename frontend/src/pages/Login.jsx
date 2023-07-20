@@ -58,9 +58,8 @@ function Login() {
             <br />
             <label htmlFor="password">Mot de passe</label>
             <input type="text" onChange={handleChangePassword} />
-          </div>
-          <div className="buttonLogin">
-            <button className="login" type="button" onClick={LogAdmin}>
+            <br />
+            <button className="loginButton" type="button" onClick={LogAdmin}>
               {" "}
               Se connecter
             </button>
