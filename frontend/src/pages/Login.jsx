@@ -7,14 +7,14 @@ function Login() {
 
   const { setUserConnected } = useContext(UserConnexionContext);
 
-  const [popup, setPopup] = useState(null);
+  const [popup, setPopup] = useState("");
 
   const closePopUp = () => {
-    setPopup(null);
+    setPopup("");
   };
 
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleChangeEmail = (event) => {
     setEmail(event.target.value);
@@ -44,7 +44,7 @@ function Login() {
         }
       })
       .catch((err) => {
-        console.error("Error:", err);
+        console.error(err.status);
       });
   };
 

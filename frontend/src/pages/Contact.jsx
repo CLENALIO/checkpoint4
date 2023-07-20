@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 
 function Contact() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
@@ -13,17 +16,21 @@ function Contact() {
     setMessage(event.target.value);
   };
 
-  const [popup, setPopup] = useState(null);
+  const [popup, setPopup] = useState("");
 
   const closePopUp = () => {
-    setPopup(null);
+    if (popup === "🐦 Votre message a bien été envoyé à Amelie") {
+      navigate("/");
+    } else {
+      setPopup("");
+    }
   };
 
   const handleSend = () => {
     if (email && message) {
-      setPopup("Votre message a bien été envoyé à Amelie");
+      setPopup("🐦 Votre message a bien été envoyé à Amelie");
     } else {
-      setPopup("Merci de bien vouloir compléter tous les champs");
+      setPopup("👮 Merci de bien vouloir compléter tous les champs");
     }
   };
 

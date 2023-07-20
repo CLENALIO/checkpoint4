@@ -15,15 +15,15 @@ function Admin() {
   const [reserve, setReserve] = useState(true);
   const [off, setOff] = useState(false);
 
-  const [type, setType] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [phone, setPhone] = useState(null);
-  const [fullname, setFullname] = useState(null);
+  const [type, setType] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [fullname, setFullname] = useState("");
 
-  const [popup, setPopup] = useState(null);
+  const [popup, setPopup] = useState("");
 
   const closePopUp = () => {
-    setPopup(null);
+    setPopup("");
   };
 
   /* GET les détails de la réservation */
@@ -48,7 +48,7 @@ function Admin() {
           setFullname(data.customername);
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err.status));
   }, [date, popup]);
 
   /* DELETE la réservation */
@@ -62,7 +62,7 @@ function Admin() {
           setPopup("La disponibilité a bien été mise à jour");
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err.status));
   };
 
   /* PUT les détails de la réservation
@@ -104,7 +104,7 @@ function Admin() {
           }
         })
         .catch((err) => {
-          console.error("Error:", err);
+          console.error(err.status);
         });
     } else {
       setPopup("Merci de bien vouloir compléter l'ensemble des champs");
@@ -132,7 +132,7 @@ function Admin() {
         }
       })
       .catch((err) => {
-        console.error("Error:", err);
+        console.error(err.status);
       });
   };
 
@@ -210,7 +210,7 @@ function Admin() {
                 )}
                 {off && (
                   <div className="details">
-                    <h2>Journée Off</h2>
+                    <h2>🌴 Journée Off</h2>
                     <br />
                     <div className="boutons">
                       <button
@@ -234,7 +234,7 @@ function Admin() {
                   </h2>
                   <br />
                 </div>
-                <h2>Ce créneau est libre</h2>
+                <h2>🎈 Ce créneau est libre</h2>
                 <br />
                 <div className="details">
                   <div className="boutons">

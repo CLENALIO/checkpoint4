@@ -33,24 +33,24 @@ function Rdv() {
             setDispo(true);
           }
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err.status));
     }
   }, [date]);
 
-  const [popup, setPopup] = useState(null);
+  const [popup, setPopup] = useState("");
 
   const closePopUp = () => {
-    if (popup === "Votre réservation a bien été effectuée") {
+    if (popup === "🚀 Votre réservation a bien été effectuée") {
       navigate("/");
     } else {
-      setPopup(null);
+      setPopup("");
     }
   };
 
-  const [type, setType] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [phone, setPhone] = useState(null);
-  const [fullname, setFullname] = useState(null);
+  const [type, setType] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [fullname, setFullname] = useState("");
 
   const handleChangeType = (event) => {
     setType(event.target.value);
@@ -85,14 +85,14 @@ function Rdv() {
       })
         .then((response) => {
           if (response.status === 201) {
-            setPopup("Votre réservation a bien été effectuée");
+            setPopup("🚀 Votre réservation a bien été effectuée");
           }
         })
         .catch((err) => {
-          console.error("Error:", err);
+          console.error(err.status);
         });
     } else {
-      setPopup("Merci de bien vouloir compléter l'ensemble des champs");
+      setPopup("👮 Merci de bien vouloir compléter l'ensemble des champs");
     }
   };
 
@@ -162,7 +162,7 @@ function Rdv() {
                   </h2>
                   <br />
                 </div>
-                <h2>Désolé, ce créneau n'est pas disponible</h2>
+                <h2>😯 Désolé, ce créneau n'est pas disponible</h2>
               </div>
             )}
           </div>

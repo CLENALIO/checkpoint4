@@ -15,7 +15,11 @@ function Calendrier({ setDate, date }) {
 
 Calendrier.propTypes = {
   setDate: PropTypes.func,
-  date: PropTypes.string,
+  date: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.instanceOf(Date),
+  ]),
 };
 
 Calendrier.defaultProps = {
