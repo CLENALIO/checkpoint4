@@ -252,6 +252,12 @@ function Admin() {
           <div className="planningContainer">
             <Calendrier setDate={setDate} date={date} />
             <div className="detailsContainer">
+              <div className="date">
+                <h2>
+                  Le {day} / {month} / {year}
+                </h2>
+                <br />
+              </div>
               <h2>{popup}</h2>
               <br />
               <div className="details">

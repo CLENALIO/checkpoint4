@@ -11,6 +11,8 @@
       font-size: 35px;
       font-weight: $medium;
       text-align: center;
+      color: $buttonColor;
+      border: 1px solid $buttonColor;
     }
 
     h2 {
@@ -64,6 +66,10 @@
             height: 40px;
             border-radius: 30px;
             font-size: 25px;
+          }
+
+          .ok {
+            width: 200px;
           }
 
           .ok:hover {

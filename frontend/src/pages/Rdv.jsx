@@ -100,7 +100,7 @@ function Rdv() {
     <div className="rdvPage">
       <Header />
       <div className="boxWithoutHeader">
-        <h1>Prendre rendez vous</h1>
+        <h1>Réserver une séance</h1>
         <br />
         {!popup && (
           <div className="rdvContainer">
@@ -114,7 +114,7 @@ function Rdv() {
                   <br />
                 </div>
                 <div className="formulaire">
-                  <select name="type" onChange={handleChangeType}>
+                  <select name="type" onChange={handleChangeType} value={type}>
                     <option value="">
                       Selectionner votre type de prestation
                     </option>
@@ -125,11 +125,23 @@ function Rdv() {
                   </select>
                   <br />
                   <label htmlFor="name">Votre nom</label>
-                  <input type="text" onChange={handleChangeFullname} />
+                  <input
+                    type="text"
+                    value={fullname}
+                    onChange={handleChangeFullname}
+                  />
                   <label htmlFor="email">Votre email</label>
-                  <input type="email" onChange={handleChangeEmail} />
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={handleChangeEmail}
+                  />
                   <label htmlFor="phone">Votre téléphone</label>
-                  <input type="phone" onChange={handleChangePhone} />
+                  <input
+                    type="phone"
+                    value={phone}
+                    onChange={handleChangePhone}
+                  />
                   <br />
                   <button
                     className="sendRdv"
@@ -159,6 +171,12 @@ function Rdv() {
           <div className="rdvContainer">
             <Calendrier setDate={setDate} date={date} />
             <div className="formContainer">
+              <div className="date">
+                <h2>
+                  Le {day} / {month} / {year} de 10h à 16h
+                </h2>
+                <br />
+              </div>
               <h2>{popup}</h2>
               <br />
               <div className="formulaire">

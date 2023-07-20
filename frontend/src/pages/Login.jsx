@@ -54,10 +54,14 @@ function Login() {
         <div className="boxLogin">
           <div className="inputLogin">
             <label htmlFor="email">Email</label>
-            <input type="email" onChange={handleChangeEmail} />
+            <input type="email" onChange={handleChangeEmail} value={email} />
             <br />
             <label htmlFor="password">Mot de passe</label>
-            <input type="text" onChange={handleChangePassword} />
+            <input
+              type="password"
+              onChange={handleChangePassword}
+              value={password}
+            />
             <br />
             <button className="loginButton" type="button" onClick={LogAdmin}>
               {" "}
