@@ -18,41 +18,29 @@ class ReservationManager extends AbstractManager {
     );
   }
 
-  update(reservation) {
+  updateByDate(reservation) {
     return this.database.query(
-      `update ${this.table} set date = ?, type = ?, email = ?, phone = ?, customername = ? where id = ?`,
+      `update ${this.table} set type = ?, email = ?, phone = ?, customername = ? where date = ?`,
       [
-        reservation.date,
         reservation.type,
         reservation.email,
         reservation.phone,
         reservation.customername,
+        reservation.date,
       ]
     );
   }
 
-  findAllwithDetails() {
-    return this.database
-      .query(`select reservation.date, reservation.type, reservation.email, reservation.phone, reservation.customername, prestation.name 
-    from  ${this.table}
-    LEFT JOIN prestation ON reservation.type = prestation.id`);
-  }
-
-  findByIdwithDetails(id) {
-    return this.database.query(
-      `select reservation.date, reservation.type, reservation.email, reservation.phone, reservation.customername, prestation.name
-    from  ${this.table} 
-    LEFT JOIN prestation ON reservation.type = prestation.id
-    where reservation.id = ?`,
-      [id]
-    );
-  }
-
   findByDate(date) {
-    return this.database.query(
-      `select reservation.type from ${this.table} where date = ?`,
-      [date]
-    );
+    return this.database.query(`select * from ${this.table} where date = ?`, [
+      date,
+    ]);
+  }
+
+  deleteByDate(date) {
+    return this.database.query(`delete from ${this.table} where date = ?`, [
+      date,
+    ]);
   }
 }
 

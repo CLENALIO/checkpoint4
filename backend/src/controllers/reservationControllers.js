@@ -28,15 +28,12 @@ const read = (req, res) => {
     });
 };
 
-const edit = (req, res) => {
+const editByDate = (req, res) => {
   const reservation = req.body;
-
-  // TODO validations (length, format...)
-
-  reservation.id = parseInt(req.params.id, 10);
+  reservation.date = req.params.date;
 
   models.reservation
-    .update(reservation)
+    .updateByDate(reservation)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -66,42 +63,14 @@ const add = (req, res) => {
     });
 };
 
-const destroy = (req, res) => {
+const destroyByDate = (req, res) => {
   models.reservation
-    .delete(req.params.id)
+    .deleteByDate(req.params.date)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
         res.sendStatus(204);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-
-const getAllwithDetails = (req, res) => {
-  models.reservation
-    .findAllwithDetails()
-    .then(([rows]) => {
-      res.send(rows);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-
-const getByIdwithDetails = (req, res) => {
-  models.reservation
-    .findByIdwithDetails(req.params.id)
-    .then(([rows]) => {
-      if (rows[0] == null) {
-        res.sendStatus(404);
-      } else {
-        res.send(rows[0]);
       }
     })
     .catch((err) => {
@@ -129,10 +98,8 @@ const getByDate = (req, res) => {
 module.exports = {
   browse,
   read,
-  edit,
+  editByDate,
   add,
-  destroy,
-  getAllwithDetails,
-  getByIdwithDetails,
   getByDate,
+  destroyByDate,
 };

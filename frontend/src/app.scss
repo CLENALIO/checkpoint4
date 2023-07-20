@@ -2,6 +2,7 @@
 
 $primaryColor: #ffe596;
 $secondColor: #f3aff0;
+$middleColor: #f9cac2;
 $textColor: black;
 $buttonColor: white;
 
@@ -23,6 +24,19 @@ $logo: url("./assets/logo.png");
   list-style: none;
   font-family: $fontFamily;
   font-weight: $regular;
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: $textColor;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: $middleColor;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: $middleColor;
+  }
 }
 
 @import "./components/header.scss";
@@ -30,3 +44,5 @@ $logo: url("./assets/logo.png");
 @import "./pages/home.scss";
 @import "./pages/rdv.scss";
 @import "./pages/contact.scss";
+@import "./pages/login.scss";
+@import "./components/calendrier.scss";

@@ -3,12 +3,81 @@
   min-height: 100vh;
 
   .boxWithoutHeader {
-    padding: 50px;
+    padding-top: 50px;
+    padding-right: 50px;
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     h1 {
+      width: 100%;
       font-size: 35px;
       font-weight: $medium;
       text-align: center;
+      color: $buttonColor;
+      border: 1px solid $buttonColor;
+    }
+
+    .contactInfos {
+      width: 45%;
+      height: 30vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h2 {
+        align-self: center;
+      }
+
+      p {
+        font-size: 20px;
+      }
+    }
+
+    .formContact {
+      width: 45%;
+      display: flex;
+      flex-direction: column;
+      font-size: 20px;
+
+      input {
+        width: 100%;
+        height: 32px;
+        border-radius: 10px;
+        font-size: 20px;
+        padding: 6px;
+      }
+
+      textarea {
+        width: 100%;
+        height: 100px;
+        border-radius: 10px;
+        font-size: 20px;
+        padding: 6px;
+      }
+
+      button {
+        background-color: $textColor;
+        color: $buttonColor;
+        width: 100%;
+        height: 40px;
+        border-radius: 30px;
+        font-size: 25px;
+      }
+
+      .contactButton:hover {
+        color: $secondColor;
+      }
+
+      .ok {
+        width: 200px;
+        margin-left: 220px;
+      }
+
+      .ok:hover {
+        color: $middleColor;
+      }
     }
   }
 }

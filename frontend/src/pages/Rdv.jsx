@@ -33,24 +33,24 @@ function Rdv() {
             setDispo(true);
           }
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err.status));
     }
   }, [date]);
 
-  const [popup, setPopup] = useState(null);
+  const [popup, setPopup] = useState("");
 
   const closePopUp = () => {
-    if (popup === "Votre réservation a bien été effectuée") {
+    if (popup === "🚀 Votre réservation a bien été effectuée") {
       navigate("/");
     } else {
-      setPopup(null);
+      setPopup("");
     }
   };
 
-  const [type, setType] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [phone, setPhone] = useState(null);
-  const [fullname, setFullname] = useState(null);
+  const [type, setType] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [fullname, setFullname] = useState("");
 
   const handleChangeType = (event) => {
     setType(event.target.value);
@@ -85,14 +85,14 @@ function Rdv() {
       })
         .then((response) => {
           if (response.status === 201) {
-            setPopup("Votre réservation a bien été effectuée");
+            setPopup("🚀 Votre réservation a bien été effectuée");
           }
         })
         .catch((err) => {
-          console.error("Error:", err);
+          console.error(err.status);
         });
     } else {
-      setPopup("Merci de bien vouloir compléter l'ensemble des champs");
+      setPopup("👮 Merci de bien vouloir compléter l'ensemble des champs");
     }
   };
 
@@ -100,7 +100,7 @@ function Rdv() {
     <div className="rdvPage">
       <Header />
       <div className="boxWithoutHeader">
-        <h1>Prendre rendez vous</h1>
+        <h1>Réserver une séance</h1>
         <br />
         {!popup && (
           <div className="rdvContainer">
@@ -114,9 +114,9 @@ function Rdv() {
                   <br />
                 </div>
                 <div className="formulaire">
-                  <select name="type" onChange={handleChangeType}>
+                  <select name="type" onChange={handleChangeType} value={type}>
                     <option value="">
-                      Selectionnez votre type de prestation
+                      Selectionner votre type de prestation
                     </option>
                     <option value="1">Tri et conseils</option>
                     <option value="2">
@@ -125,11 +125,23 @@ function Rdv() {
                   </select>
                   <br />
                   <label htmlFor="name">Votre nom</label>
-                  <input type="text" onChange={handleChangeFullname} />
+                  <input
+                    type="text"
+                    value={fullname}
+                    onChange={handleChangeFullname}
+                  />
                   <label htmlFor="email">Votre email</label>
-                  <input type="email" onChange={handleChangeEmail} />
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={handleChangeEmail}
+                  />
                   <label htmlFor="phone">Votre téléphone</label>
-                  <input type="number" onChange={handleChangePhone} />
+                  <input
+                    type="phone"
+                    value={phone}
+                    onChange={handleChangePhone}
+                  />
                   <br />
                   <button
                     className="sendRdv"
@@ -144,7 +156,13 @@ function Rdv() {
             )}
             {!dispo && (
               <div className="formContainer">
-                <h2>Désolé ce créneau n'est pas disponible</h2>
+                <div className="date">
+                  <h2>
+                    Le {day} / {month} / {year}
+                  </h2>
+                  <br />
+                </div>
+                <h2>😯 Désolé, ce créneau n'est pas disponible</h2>
               </div>
             )}
           </div>
@@ -153,10 +171,16 @@ function Rdv() {
           <div className="rdvContainer">
             <Calendrier setDate={setDate} date={date} />
             <div className="formContainer">
+              <div className="date">
+                <h2>
+                  Le {day} / {month} / {year} de 10h à 16h
+                </h2>
+                <br />
+              </div>
               <h2>{popup}</h2>
               <br />
               <div className="formulaire">
-                <button className="sendRdv" type="button" onClick={closePopUp}>
+                <button className="ok" type="button" onClick={closePopUp}>
                   {" "}
                   Ok{" "}
                 </button>
