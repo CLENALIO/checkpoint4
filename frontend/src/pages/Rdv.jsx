@@ -144,6 +144,12 @@ function Rdv() {
             )}
             {!dispo && (
               <div className="formContainer">
+                <div className="date">
+                  <h2>
+                    Le {day} / {month} / {year}
+                  </h2>
+                  <br />
+                </div>
                 <h2>Désolé, ce créneau n'est pas disponible</h2>
               </div>
             )}

@@ -30,7 +30,7 @@ CREATE TABLE
         date DATE UNIQUE NOT NULL,
         type INT NOT NULL,
         email VARCHAR(100),
-        phone INT,
+        phone VARCHAR(15),
         customername VARCHAR(100),
         PRIMARY KEY (date),
         FOREIGN KEY (type) REFERENCES prestation(id)

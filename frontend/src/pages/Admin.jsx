@@ -59,7 +59,7 @@ function Admin() {
     })
       .then((response) => {
         if (response.status === 204) {
-          setPopup("La réservation a bien été annulée");
+          setPopup("La disponibilité a bien été mise à jour");
         }
       })
       .catch((err) => console.error(err));
@@ -84,16 +84,63 @@ function Admin() {
     setFullname(event.target.value);
   };
 
+  const handleUpdate = () => {
+    if (type && email && phone && fullname) {
+      fetch(`http://localhost:8080/api/reservation/${dateSQL}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          type,
+          email,
+          phone,
+          customername: fullname,
+        }),
+      })
+        .then((response) => {
+          if (response.status === 204) {
+            setPopup("La réservation a bien été modifiée");
+          }
+        })
+        .catch((err) => {
+          console.error("Error:", err);
+        });
+    } else {
+      setPopup("Merci de bien vouloir compléter l'ensemble des champs");
+    }
+  };
+
   /* ADD conges */
+
+  const handleOff = () => {
+    fetch("http://localhost:8080/api/reservation", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        date: dateSQL,
+        type: 3,
+      }),
+    })
+      .then((response) => {
+        if (response.status === 201) {
+          setPopup(
+            "Cette journée a été supprimée du calendrier de disponibilité"
+          );
+        }
+      })
+      .catch((err) => {
+        console.error("Error:", err);
+      });
+  };
 
   return (
     <div className="adminPage">
       <Header />
       <div className="boxWithoutHeader">
         <h1>Mon planning</h1>
-        <button className="absence" type="button">
-          Gestion des absences
-        </button>
         <br />
         {!popup && (
           <div className="planningContainer">
@@ -142,7 +189,11 @@ function Admin() {
                     />
                     <br />
                     <div className="boutons">
-                      <button className="sendRdv" type="button">
+                      <button
+                        className="sendRdv"
+                        type="button"
+                        onClick={handleUpdate}
+                      >
                         {" "}
                         Modifier ce rendez vous
                       </button>
@@ -160,13 +211,43 @@ function Admin() {
                 {off && (
                   <div className="details">
                     <h2>Journée Off</h2>
+                    <br />
+                    <div className="boutons">
+                      <button
+                        className="sendRdv"
+                        type="button"
+                        onClick={handleDelete}
+                      >
+                        {" "}
+                        Libérer cette journée
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>
             )}
             {!reserve && (
               <div className="detailsContainer">
+                <div className="date">
+                  <h2>
+                    Le {day} / {month} / {year}
+                  </h2>
+                  <br />
+                </div>
                 <h2>Ce créneau est libre</h2>
+                <br />
+                <div className="details">
+                  <div className="boutons">
+                    <button
+                      className="sendRdv"
+                      type="button"
+                      onClick={handleOff}
+                    >
+                      {" "}
+                      Modifier en jour Off
+                    </button>
+                  </div>
+                </div>
               </div>
             )}
           </div>
