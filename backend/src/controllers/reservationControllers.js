@@ -95,11 +95,24 @@ const getByDate = (req, res) => {
     });
 };
 
+const getByMonth = (req, res) => {
+  models.reservation
+    .findByMonth()
+    .then(([rows]) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   browse,
   read,
   editByDate,
   add,
   getByDate,
+  getByMonth,
   destroyByDate,
 };

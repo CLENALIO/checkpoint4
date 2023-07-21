@@ -14,6 +14,7 @@ const reservationControllers = require("./controllers/reservationControllers");
 
 router.get("/api/reservation", reservationControllers.browse);
 router.get("/api/reservationByDate/:date", reservationControllers.getByDate);
+router.get("/api/reservationByMonth", reservationControllers.getByMonth);
 router.put("/api/reservation/:date", reservationControllers.editByDate);
 router.post("/api/reservation", reservationControllers.add);
 router.delete("/api/reservation/:date", reservationControllers.destroyByDate);

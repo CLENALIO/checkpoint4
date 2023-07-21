@@ -37,6 +37,10 @@ class ReservationManager extends AbstractManager {
     ]);
   }
 
+  findByMonth() {
+    return this.database.query(`select date from ${this.table}`);
+  }
+
   deleteByDate(date) {
     return this.database.query(`delete from ${this.table} where date = ?`, [
       date,
